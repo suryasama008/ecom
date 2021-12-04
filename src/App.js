@@ -1,25 +1,50 @@
-import logo from './logo.svg';
+import React,{Component} from 'react';
 import './App.css';
 
-function App() {
+class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      showChild:true,
+      text : ''
+    };
+  }
+  // handleClick = () => {
+  //   this.setState((prevState, prevProps) => {
+  //     return {meaningOfLife: prevState.meaningOfLife + prevProps.increament}
+  //   },
+  //     () => console.log(this.state.meaningOfLife) )
+    
+  // }
+render(){
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+         {this.state.text}
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+        <button
+          onClick = {() => 
+          this.setState(state => ({
+            showChild : !state.showChild
+          }))
+          }
         >
-          Learn React
-        </a>
+          Toggle Life Cycle
+        </button>
+        <button
+        onClick = { () => 
+        this.setState(state => ({
+            text: state.text + "_Hello"
+        }))
+      }
+        >
+           Add Hello
+        </button>
+        {/* {this.state.showChild ? <Lifecycles text = {this.state.text} /> : null } */}
       </header>
     </div>
   );
 }
-
+}
 export default App;
