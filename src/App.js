@@ -30,7 +30,7 @@ render(){
           }))
           }
         >
-          Toggle Life Cycle
+          Toggle Life CycleS
         </button>
         <button
         onClick = { () => 
